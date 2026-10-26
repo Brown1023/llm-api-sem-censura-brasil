@@ -1,0 +1,31 @@
+# API de LLM sem censura para desenvolvedores no Brasil
+
+> Uma API compatível com OpenAI que responde o que foi perguntado. Sem recusa genérica, sem aviso de segurança no lugar do conteúdo, sem meia resposta. Base URL: https://uncensored-llm.sbs/v1
+
+Se você já tentou usar um modelo de linguagem para escrever sobre política, saúde, segurança ofensiva ou qualquer tema que o fornecedor estrangeiro considera sensível, conhece o resultado: recusa genérica, aviso de segurança no lugar de conteúdo, resposta pela metade. Esta página descreve uma alternativa direta — uma API compatível com OpenAI que responde a pergunta feita.
+
+## API
+- Base URL: https://uncensored-llm.sbs/v1
+- Auth: Authorization: Bearer <key>
+- Compatible: OpenAI chat completions, streaming, tool calling
+- Models: GET https://uncensored-llm.sbs/v1/models
+- Docs: https://uncensored-llm.sbs
+
+## Por que isso importa para quem está no Brasil
+A maioria dos projetos brasileiros não precisa de um modelo que decida o que o usuário deve ouvir; precisa de um modelo que escreva em português, entenda contexto local e não cuspa um parágrafo de aviso a cada prompt sobre política, saúde ou dinheiro. Pior ainda quando o produto é em português e o modelo responde em inglês mesmo com o prompt em pt-BR. Esta API aceita system prompt e instruções de idioma e cumpre — com streaming, tool calling e JSON mode, do mesmo jeito que qualquer cliente OpenAI já faz hoje.
+
+## Perguntas que aparecem de verdade
+### É compatível com o SDK da OpenAI?
+Sim. Basta apontar base_url para https://uncensored-llm.sbs/v1 e manter o api_key. chat.completions e models.list funcionam sem adaptação.
+
+### Preciso de cartão internacional?
+As condições de pagamento vigentes estão em https://uncensored-llm.sbs e mudam de tempos em tempos. O foco é desenvolvedor, não cobrança em dólar com IOF em cima de cada token.
+
+### Qual é o filtro?
+Filtro ideológico: nenhum. O que permanece bloqueado é conteúdo ilegal, incluindo material envolvendo menores. Fora disso, a resposta é sobre o pedido.
+
+### Quais modelos existem?
+Liste com GET https://uncensored-llm.sbs/v1/models. Todo cliente que lê /v1/models descobre os modelos sozinho.
+
+### Dá para usar em produção?
+Sim, com chave por ambiente e rotação. Guarde a chave fora do repositório, em variável de ambiente ou cofre.
